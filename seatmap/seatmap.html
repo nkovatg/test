@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Choose your seat — Marquee Tickets</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../styles/central.css" />
+</head>
+<body class="seatmap-page">
+  <header class="sticky-header" role="banner">
+    <div class="logo logo--brand" aria-label="Marquee Tickets">
+      <span class="brand-mark">M</span>
+      <span class="brand-name">Marquee<span class="brand-name-suffix">Tickets</span></span>
+    </div>
+    <button type="button" class="login">Log in / Register <img src="../assets/iconsSystem.svg" alt="" aria-hidden="true" /></button>
+  </header>
+
+  <main>
+    <h1 class="occasion">Tuesday · Evening</h1>
+
+    <div class="steps">
+      <div class="track"></div>
+      <div class="row">
+        <div class="step active">
+          <div class="pin">1</div>
+          <div class="name">Orpheum Theatre</div>
+          <div class="shows">The Great Gatsby, Death Becomes Her, Maybe Happy Ending, The Outsiders</div>
+          <div class="seat-badges" id="seatBadges"></div>
+        </div>
+        <div class="step">
+          <div class="pin">2</div>
+          <div class="name">Golden Gate Theatre</div>
+          <div class="shows">Buena Vista Social Club™, Operation Mincemeat: A New Musical, "Oh, Mary!"</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div>
+        <div class="filterbar" style="border-radius: 0px" id="filterbar">
+          <div class="row" style="gap: 8px; justify-content: flex-start">
+            <span class="label" id="filterLabel">Price per subscription:</span>
+            <div id="tiers" style="display:contents"></div>
+            <div id="seatChips" style="display:contents"></div>
+            <button class="change-price hidden" id="changePrice" type="button">Clear all</button>
+          </div>
+          <div class="row" style="gap: 8px">
+            <span class="label">Seat type</span>
+            <button class="chip" data-seattype="wc">
+              <span class="ic">
+                <img src="../assets/iconsAccessibility.svg" width="14" height="14" alt="" />
+              </span>
+              Wheelchair
+            </button>
+            <button class="chip" data-seattype="wcc">
+              <span class="ic">
+                <img src="../assets/iconsAccessibility.svg" width="14" height="14" alt="" />
+              </span>
+              Wheelchair Companion
+            </button>
+          </div>
+        </div>
+
+<div class="mapwrap" style="margin-top:16px">
+          <div class="zoom" style="border-radius: 4px">
+            <button id="zin" title="Zoom in"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+            <button id="zhome" title="Reset"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l9-9 9 9"/><path d="M5 10v10h14V10"/></svg></button>
+            <button id="zout" title="Zoom out"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14"/></svg></button>
+          </div>
+          <div class="map-stage" id="stage">
+            <div class="map-inner" id="mapInner"></div>
+          </div>
+          <div class="tooltip" id="ttp"></div>
+        </div>
+      </div>
+
+      <div class="summary-col">
+        <aside class="summary" style="border-radius: 8px">
+          <h2>Order summary</h2>
+          <div class="sub">First Tuesday Evening 2026 New Subscription</div>
+          <div id="selected" class="selected-list"></div>
+          <div class="total"><span>Order total</span><span class="val" id="total">$0.00</span></div>
+        </aside>
+        <div class="summary-note">Order total includes all taxes and fees.</div>
+        <button class="cta cta-out" id="cta" disabled style="border-radius: 4px">Continue to Golden Gate Theatre</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal: Clear all (step 2 / GGT) — confirm going back to choose a new price band -->
+  <div class="modal-backdrop" id="clearAllModal" role="dialog" aria-modal="true" aria-labelledby="camTitle">
+    <div class="modal" style="width:400px; padding:28px 28px 22px">
+      <h3 id="camTitle" style="font-size:20px; line-height:1.25; margin-bottom:14px">Do you want to change the subscription price?</h3>
+      <p style="font-size:14px; line-height:1.6; margin-bottom:22px">This will release all seats added to your cart and you'll need to choose seats from the first venue again.</p>
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <button type="button" id="camKeep" style="width:100%; height:48px; border-radius:8px; background:var(--accent); color:#fff; border:0; font-size:14px; font-weight:600; cursor:pointer; font-family:inherit">Keep selection</button>
+        <button type="button" id="camChange" style="width:100%; height:48px; border-radius:8px; background:#fff; color:var(--ink); border:1.5px solid var(--ink); font-size:14px; font-weight:600; cursor:pointer; font-family:inherit">Change</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="checkout" id="checkout">
+    <div class="checkout-card" id="checkoutCard"></div>
+  </div>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="seats.js?v=28"></script>
+<script src="golden-gate-seats.js"></script>
+<script src="app.js?v=28"></script>
+</body>
+</html>
