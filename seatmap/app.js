@@ -694,19 +694,21 @@ function __initSeatmapApp(){
         : (activeTier !== 'ALL' ? activeTier : null);
       subPerPerson = tierPrice(tid);
     }
-    // Orpheum: subscriber count follows selection; if user picked a price tier but no seats yet,
-    // show the same 2-subscriber preview as the review basket. Golden Gate: always 2.
+    // Orpheum: count matches seats once selected; price chip alone previews 1× unit (no line item until a seat). Golden Gate: always 2.
     const nSubs =
       venueIdx >= 1 ? 2 :
-      (selected.size > 0 ? selected.size : (activeTier !== 'ALL' ? 2 : 0));
+      (selected.size > 0 ? selected.size : (activeTier !== 'ALL' ? 1 : 0));
     if (nSubs > 0 && subPerPerson > 0) {
       tot = subPerPerson * nSubs;
-      const item = document.createElement('div');
-      item.className = 'selected-item selected-item--subscription';
-      item.innerHTML = `
+      // Price chip alone updates order total; subscription row appears only after a seat is added.
+      if (selected.size > 0) {
+        const item = document.createElement('div');
+        item.className = 'selected-item selected-item--subscription';
+        item.innerHTML = `
         <span class="subscription-line-label"><strong>${nSubs} x subscriptions</strong></span>
         <span class="price">${fmt(subPerPerson)}</span>`;
-      summaryEl.appendChild(item);
+        summaryEl.appendChild(item);
+      }
     }
     totalEl.textContent = fmt(tot);
     const ctaLabel = venueIdx === 0 ? 'Continue to Golden Gate Theatre' : 'Reserve and continue';

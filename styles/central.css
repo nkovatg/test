@@ -509,17 +509,14 @@
 
   /* ============== State 23: Login modal ============== */
   .login-state { background: #fff; min-height: 1000px; padding-top: 0; position: relative; }
-  .login-page { padding: 32px 0 80px; opacity: 0.5; pointer-events: none; }
-  .login-page::after {
-    content: ''; position: absolute; inset: 56px 0 0 0; background: rgba(0,0,0,0.35); z-index: 5;
-  }
+  .login-page { padding: 32px 0 80px; pointer-events: none; }
   .login-modal-overlay {
-    position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 40;
+    position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 400;
     display: flex; align-items: center; justify-content: center;
   }
   .login-modal {
     width: 340px; background: #fff; border-radius: 8px;
-    padding: 28px; position: relative;
+    padding: 28px; position: relative; z-index: 1;
     box-shadow: 0 30px 80px rgba(0,0,0,0.2);
   }
   .login-modal-close {
@@ -1192,7 +1189,7 @@
   .selected-list{margin-top:12px; display:flex; flex-direction:column; gap:8px}
   .selected-item{
     display:flex; justify-content:space-between; align-items:center; gap:8px;
-    padding:3px 0; font-size:14px; line-height:1.25; color:#222;
+    padding:3px 0 16px; font-size:14px; line-height:1.25; color:#222;
   }
   .selected-item .subscription-line-label{
     flex:1; min-width:0; font-weight:500;

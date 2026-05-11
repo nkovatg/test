@@ -90,7 +90,7 @@
                 <button class="change-price hidden" id="changePrice" type="button">Clear all</button>
               </div>
               <div class="row" style="gap: 8px">
-                <span class="label">Seat type</span>
+                <span class="label" style="width: 150px">Seat type</span>
                 <button class="chip" data-seattype="wc">
                   <span class="ic">
                     <img src="assets/iconsAccessibility.svg" width="14" height="14" alt="" />
@@ -122,11 +122,11 @@
           <div class="summary-col">
             <aside class="summary" style="border-radius: 8px">
               <h2>Order summary</h2>
-              <div class="sub">First Tuesday Evening 2026 New Subscription</div>
+              <div class="sub" style="font-weight: 700">First Tuesday Evening 2026 New Subscription</div>
               <div id="selected" class="selected-list"></div>
-              <div class="total"><span>Order total</span><span class="val" id="total">$0.00</span></div>
+              <div class="total" style="border-width: 0px; margin: 0px"><span>Order total</span><span class="val" id="total">$0.00</span></div>
             </aside>
-            <div class="summary-note">Order total includes all taxes and fees.</div>
+            <div class="summary-note" style="margin: 24px 0px">Order total includes all taxes and fees.</div>
             <button class="cta cta-out" id="cta" disabled>Continue to Golden Gate Theatre</button>
           </div>
         </div>
@@ -386,7 +386,7 @@
     { name: "The Outsiders", venue: "Orpheum Theatre", date: "Thu Jan 8 2026 · 7:00 PM", src: "assets/shows/orpheum_theoutsiders_showcard_720x405.jpg" },
     { name: "Buena Vista Social Club™", venue: "Golden Gate Theatre", date: "Thu Jan 8 2026 · 7:00 PM", src: "assets/shows/orpheum_buenavistasocialclub_showcard_720x405_a.jpg" },
     { name: "Operation Mincemeat: A New Musical", venue: "Golden Gate Theatre", date: "Thu Jan 8 2026 · 7:00 PM", src: "assets/shows/orpheum_operationmincemeat_showcard_720x405.jpg" },
-    { name: "Oh, Mary!", venue: "Golden Gate Theatre", date: "Thu Jan 8 2026 · 7:00 PM", src: "assets/shows/curran_ohmary_showcard_720x405.jpg" },
+    { name: "Oh, Mary!", venue: "Golden Gate Theatre", date: "Thu Jan 8 2026 · 7:00 PM", src: "assets/shows/curran_ohmary_showcard_720x405.webp" },
   ];
   const DAYS = ['Tue','Wed','Thu','Fri','Sat','Sun'];
   const TIMES = ['Matinee','Evening'];
@@ -717,3 +717,57 @@
 </script>
 </body>
 </html>
+
+<style id="__om-edit-overrides">
+#selected >.selected-item { font-weight: 300 !important }
+#selected >.selected-item { padding: 3px 0px 1px !important }
+#selected >.selected-item { padding: 0px 0px 16px !important }
+#selected >.selected-item { border-width: 0px 0px 1px !important; border-style: solid !important }
+#selected .subscription-line-label { font-weight: 300 !important }
+#selected .subscription-line-label { padding: 0px 0px 16px !important }
+#selected .subscription-line-label { border-width: 0px 0px 1px !important; border-style: solid !important }
+#selected .subscription-line-label { border-width: 0px !important }
+#selected .subscription-line-label { opacity: 1.57 !important }
+#selected .subscription-line-label { border-width: 0px 0px 1px !important }
+#selected .subscription-line-label { border-width: 0px !important; padding: 0px !important }
+#selected >.selected-item { padding: 0px 0px 3px !important }
+#selected >.selected-item { padding: 0px 0px 16px !important }
+#selected >.selected-item { margin: 0px 0px 1px !important }
+#selected >.selected-item { margin: 0px !important }
+#selected >.selected-item { border-width: 0px 0px 1px !important; border-style: solid !important }
+#selected >.selected-item { font-weight: 300 !important }
+#selected >.selected-item { padding: 3px 0px 16px !important }
+#selected >.selected-item { padding: 0px 0px 16px !important }
+#selected >.selected-item { margin: 0px 0px 1px !important }
+#selected >.selected-item { margin: 0px !important }
+#selected >.selected-item { border-width: 0px 0px 1px !important; border-style: solid !important }
+#selected >.selected-item { font-weight: 300 !important }
+#selected >.selected-item { padding: 0px 0px 3px !important }
+#selected >.selected-item { padding: 0px 0px 1px !important }
+#selected >.selected-item { border-width: 0px 0px 1px !important; border-style: solid !important }
+#selected >.selected-item { padding: 0px 0px 3px !important }
+#selected >.selected-item { padding: 0px 0px 1px !important }
+#selected >.selected-item { border-width: 0px 0px 1px !important; border-style: solid !important }
+#selected >.selected-item { padding: 0px 0px 16px !important }
+#selected >.selected-item { padding: 0px 0px 16px !important }
+#selected >.selected-item { margin: 0px 0px 16px !important }
+#selected >.selected-item { margin: 0px !important }
+#selected .subscription-line-label { padding: 0px 0px 16px !important }
+#selected .subscription-line-label { padding: 0px !important }
+#selected .subscription-line-label { padding: 0px 0px 1px !important }
+#selected >.selected-item { padding: 0px !important }
+#selected >.selected-item { padding: 0px 0px 1px !important }
+#selected .subscription-line-label { padding: 0px 0px 16px !important }
+#selected .subscription-line-label { padding: 0px 0px 1px !important }
+#selected .subscription-line-label { height: 24px !important }
+#selected .price { font-weight: 300 !important }
+#selected .subscription-line-label { font-weight: 300 !important }
+#selected >.selected-item { padding: 0px 0px 16px !important }
+#selected >.selected-item { padding: 0px 0px 3333px !important }
+#selected >.selected-item { margin: 0px 0px 333px !important }
+#selected >.selected-item { border-width: 0px !important }
+#selected >.selected-item { padding: 0px 0px 16px !important }
+#selected >.selected-item { margin: 0px !important }
+#selected >.selected-item { border-width: 0px 0px 1px !important }
+#selected >.selected-item { border-style: solid !important }
+</style>
